@@ -1,126 +1,41 @@
-#-------------------------
-# Operating Specific Junk Files
-#-------------------------
-
-# OS X
-.DS_Store
-.AppleDouble
-.LSOverride
-
-# OS X Thumbnails
-._*
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
-
-# Linux
-*~
-
-# KDE directory preferences
-.directory
-
-# Linux trash folder which might appear on any partition or disk
-.Trash-*
-
-#-------------------------
-# Environment Files
-#-------------------------
-# These should never be under version control,
-# as it poses a security risk.
+#Composer dependencies live there and can be regenerated with composer install.
+/vendor/
+#writable/ contains runtime data (cache, sessions, logs, uploads) that changes constantly and is environment-specific.
+/writable/
+#Git doesn’t store empty folders. .gitkeep is a placeholder so writable/ exists in the repo when someone clones it.
+!/writable/.gitkeep
+#contains secrets (DB password, API keys) and machine-specific config.
 .env
-.vagrant
-Vagrantfile
-
-#-------------------------
-# Temporary Files
-#-------------------------
-writable/cache/*
-!writable/cache/index.html
-
-writable/logs/*
-!writable/logs/index.html
-
-writable/session/*
-!writable/session/index.html
-
-writable/uploads/*
-!writable/uploads/index.html
-
-writable/debugbar/*
-!writable/debugbar/.gitkeep
-
-php_errors.log
-
-#-------------------------
-# User Guide Temp Files
-#-------------------------
-user_guide_src/build/*
-user_guide_src/cilexer/build/*
-user_guide_src/cilexer/dist/*
-user_guide_src/cilexer/pycilexer.egg-info/*
-
-#-------------------------
-# Test Files
-#-------------------------
-tests/coverage*
-
-# Don't save phpunit under version control.
-phpunit
-
-#-------------------------
-# Composer
-#-------------------------
-vendor/
-
-#-------------------------
-# IDE / Development Files
-#-------------------------
-
-# Modules Testing
-_modules/*
-
-# phpenv local config
-.php-version
-
-# Jetbrains editors (PHPStorm, etc)
-.idea/
-*.iml
-
-# Netbeans
-nbproject/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-.nb-gradle/
-
-# Sublime Text
-*.tmlanguage.cache
-*.tmPreferences.cache
-*.stTheme.cache
-*.sublime-workspace
-*.sublime-project
-.phpintel
-/api/
-
-# Visual Studio Code
+#Ignore any file that starts with .env. followed by anything.
+.env.*
+#do not ignore .env.example
+!.env.example
+#logs are generated output, not source code.
+*.log
+#Cached/generated files.
+.cache/
+#PHPUnit generates it locally to speed up tests.
+phpunit-result-cache
+#macOS Finder metadata; irrelevant to the project.
+.DS_Store
+#Windows thumbnail cache; irrelevant.
+Thumbs.db
+#VS Code workspace settings are usually personal to your machine.
 .vscode/
+#JetBrains IDE project files; usually personal/machine-specific.
+.idea/
+#Node dependencies; huge; regenerated with npm install / pnpm install.
+node_modules/
+#Typically build output from bundlers (Vite/Webpack/etc.).
+dist/
+#Also typically build output.
+build/
 
-/results/
-/phpunit*.xml
+
+#/ at the end (like vendor/) means “this is a folder.”
+
+#/ at the start (like /vendor/) means “only match at the project root.”
+
+#* means “anything” (wildcard).
+
+#! means “exception: do NOT ignore this match.”
